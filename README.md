@@ -21,3 +21,34 @@ Source : https://www.kaggle.com/c/quora-question-pairs
 * Kaggle Winning Solution and other approaches: https://www.dropbox.com/sh/93968nfnrzh8bp5/AACZdtsApc1QSTQc7X0H3QZ5a?dl=0
 * Blog 1 : https://engineering.quora.com/Semantic-Question-Matching-with-Deep-Learning
 * Blog 2 : https://towardsdatascience.com/identifying-duplicate-questions-on-quora-top-12-on-kaggle-4c1cf93f1c30
+
+# 1.3 Real world/Business Objectives and Constraints 
+* The cost of a mis-classification can be very high.
+* You would want a probability of a pair of questions to be duplicates so that you can choose any threshold of choice.
+* No strict latency concerns.
+* Interpretability is partially important.
+# 2. Machine Learning Probelm 
+## 2.1 Data 
+## 2.1.1 Data Overview 
+- Data will be in a file Train.csv 
+- Train.csv contains 5 columns : qid1, qid2, question1, question2, is_duplicate 
+- Size of Train.csv - 60MB 
+- Number of rows in Train.csv = 404,290
+
+## 2.1.2 Example Data point 
+"id","qid1","qid2","question1","question2","is_duplicate"
+"0","1","2","What is the step by step guide to invest in share market in india?","What is the step by step guide to invest in share market?","0"
+"1","3","4","What is the story of Kohinoor (Koh-i-Noor) Diamond?","What would happen if the Indian government stole the Kohinoor (Koh-i-Noor) diamond back?","0"
+"7","15","16","How can I be a good geologist?","What should I do to be a great geologist?","1"
+"11","23","24","How do I read and find my YouTube comments?","How can I see all my Youtube comments?","1"
+# 2.2 Mapping the real world problem to an ML problem 
+## 2.2.1 Type of Machine Leaning Problem 
+It is a binary classification problem, for a given pair of questions we need to predict if they are duplicate or not.
+
+# 2.2.2 Performance Metric 
+Source: https://www.kaggle.com/c/quora-question-pairs#evaluation
+
+## Metric(s):
+
+* log-loss : https://www.kaggle.com/wiki/LogarithmicLoss
+* Binary Confusion Matrix
